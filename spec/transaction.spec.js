@@ -9,13 +9,18 @@ describe("Transaction", () => {
 		expect(dep1.date).toEqual("9/21/2022");
 	});
 
+	it("a deposit transaction object stores the date of creation - REWRITE TEST EACH CALENDAR DAY", () => {
+		var dep1 = new Transaction(100, 0);
+		expect(dep1.date).toEqual("9/21/2022");
+	});
+
 	it("a single null argument causes no error in construction", () => {
 		var dep1 = new Transaction(100, null);
 		dep1.date = "9/21/2022";
 		expect(dep1.withdrawal).toEqual(null);
 	});
 
-	it("two null arguments throws error", () => {
+	it("two empty arguments throws error", () => {
 		expect(() => {
 			new Transaction(undefined, undefined);
 		}).toThrow("deposit and withdrawal cannot both be empty...");
