@@ -16,7 +16,8 @@ Account class
 
 1. initially, there should be an account, with balance 0
 2. after an deposit of 100, there should be 100 in the account
-3. after one transaction i can print a statement and it shows the date of the transaction, the money moving and balance
-4. i can withdraw 50 and it should show a balance of 50
-5. after 2 transactions i can print a statement showing both transactions and balances
-6.
+3. after a subsequent withdrawal of 50, there should be 50 in the account
+4. i can print a statement and it shows the dates of transactions, the money moving and balances
+5. i can withdraw 50 and it should show a balance of 50
+6. after 2 transactions i can print a statement showing both transactions and balances
+7. k
