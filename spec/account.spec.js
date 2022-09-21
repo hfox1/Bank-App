@@ -57,5 +57,29 @@ describe("Account", () => {
 				"date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00"
 			);
 		});
+
+		it("prints three mocked transactions", () => {
+			var acc = new Account();
+			var dep1 = { deposit: 1000, withdrawal: 0, date: "10/01/2023" };
+			var dep2 = { deposit: 2000, withdrawal: 0, date: "13/01/2023" };
+			var dep3 = { deposit: 0, withdrawal: 500, date: "14/01/2023" };
+			acc.add(dep1);
+			acc.add(dep2);
+			acc.add(dep3);
+
+			const logSpy = jest.spyOn(console, "log");
+			acc.print();
+			expect(logSpy).toHaveBeenCalledWith(
+				"date || credit || debit || balance\n" +
+        "14/01/2023 || || 500.00 || 2500.00\n" +
+        "13/01/2023 || 2000.00 || || 3000.00\n" +
+        "10/01/2023 || 1000.00 || || 1000.00"
+			);
+		});
 	});
 });
+
+// date || credit || debit || balance
+// 14/01/2023 || || 500.00 || 2500.00
+// 13/01/2023 || 2000.00 || || 3000.00
+// 10/01/2023 || 1000.00 || || 1000.00
