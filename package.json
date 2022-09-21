@@ -1,0 +1,14 @@
+{
+  "name": "tt_bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "account.js",
+  "jest": {
+    "verbose": true},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
