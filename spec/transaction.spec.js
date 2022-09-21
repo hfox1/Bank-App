@@ -18,6 +18,6 @@ describe("Transaction", () => {
 	it("two null arguments throws error", () => {
 		expect(() => {
 			new Transaction(undefined, undefined);
-		}).toThrow();
+		}).toThrow("deposit and withdrawal cannot both be empty...");
 	});
 });

@@ -9,5 +9,8 @@ describe("Account", () => {
 	// beforeEach((done) => {
 	// });
 
-	xit("a deposit transaction object is created and the amount is checked", () => {});
+	it("an account has balance 0 on creation", () => {
+		var acc = new Account();
+		expect(acc.balance).toBe(0);
+	});
 });
