@@ -17,7 +17,7 @@ describe("Transaction", () => {
 
 	it("two null arguments throws error", () => {
 		expect(() => {
-			new Transaction(null, null);
+			new Transaction(undefined, undefined);
 		}).toThrow();
 	});
 });
