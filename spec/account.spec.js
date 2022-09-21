@@ -23,7 +23,8 @@ describe("Account", () => {
 			var acc = new Account();
 			var dep1 = { deposit: 1, withdrawal: 2, date: "9/21/2022" };
 			acc.add(dep1);
-			expect(acc.ledger).toBe([
+			console.log(acc.ledger);
+			expect(acc.ledger).toEqual([
 				{ deposit: 1, withdrawal: 2, date: "9/21/2022" },
 			]);
 		});
