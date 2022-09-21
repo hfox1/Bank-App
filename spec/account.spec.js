@@ -50,7 +50,10 @@ describe("Account", () => {
 			acc.balance = 3000.0;
 			var dep1 = { deposit: 0, withdrawal: 500, date: "14/01/2023" };
 			acc.add(dep1);
-			expect(acc.print).toEqual(
+
+			const logSpy = jest.spyOn(console, "log");
+			acc.print();
+			expect(logSpy).toHaveBeenCalledWith(
 				"date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00"
 			);
 		});
