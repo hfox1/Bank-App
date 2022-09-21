@@ -2,6 +2,8 @@ const Account = require("../lib/account");
 const Transaction = require("../lib/transaction");
 
 describe("Account", () => {
+  let today = new Date().toLocaleDateString()
+
 	it("an account has balance 0 on creation", () => {
 		var acc = new Account();
 		expect(acc.balance).toBe(0);
@@ -10,25 +12,25 @@ describe("Account", () => {
 	describe("account works with mocked transactions", () => {
 		it("mocked transaction can be added to an account", () => {
 			var acc = new Account();
-			var dep1 = { deposit: 2, withdrawal: 1, date: "9/21/2022" };
+			var dep1 = new Transaction(2,1);
 			acc.add(dep1);
 			expect(acc.ledger).toEqual([
-				{ deposit: 2, withdrawal: 1, date: "9/21/2022", balance: 1 },
+				{ deposit: 2, withdrawal: 1, date: today, balance: 1 },
 			]);
 		});
 
 		it("mocked transaction affects account balance", () => {
 			var acc = new Account();
-			var dep1 = { deposit: 100, withdrawal: 0, date: "9/21/2022" };
+			var dep1 = new Transaction(100,0);
 			acc.add(dep1);
 			expect(acc.balance).toBe(100);
 		});
 
 		it("2 transactions affect account balance", () => {
 			var acc = new Account();
-			var dep1 = { deposit: 100, withdrawal: 0, date: "9/21/2022" };
+			var dep1 = new Transaction(100,0);
 			acc.add(dep1);
-			var dep2 = { deposit: 0, withdrawal: 50, date: "9/21/2022" };
+			var dep2 = new Transaction(0,50);
 			acc.add(dep2);
 			expect(acc.balance).toBe(50);
 		});
@@ -36,7 +38,8 @@ describe("Account", () => {
 		it("prints one mocked transaction", () => {
 			var acc = new Account();
 			acc.balance = 3000.0;
-			var dep1 = { deposit: 0, withdrawal: 500, date: "14/01/2023" };
+			var dep1 = new Transaction(0,500);
+      dep1.date = "14/01/2023";
 			acc.add(dep1);
 
 			const logSpy = jest.spyOn(console, "log");
@@ -48,9 +51,12 @@ describe("Account", () => {
 
 		it("prints three mocked transactions", () => {
 			var acc = new Account();
-			var dep1 = { deposit: 1000, withdrawal: 0, date: "10/01/2023" };
-			var dep2 = { deposit: 2000, withdrawal: 0, date: "13/01/2023" };
-			var dep3 = { deposit: 0, withdrawal: 500, date: "14/01/2023" };
+			var dep1 = new Transaction(1000,0); 
+      dep1.date = "10/01/2023";
+			var dep2 = new Transaction(2000,0); 
+      dep2.date = "13/01/2023";
+			var dep3 = new Transaction(0,500); 
+      dep3.date = "14/01/2023";
 			acc.add(dep1);
 			acc.add(dep2);
 			acc.add(dep3);
