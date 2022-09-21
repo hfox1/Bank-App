@@ -2,9 +2,9 @@
 // after an deposit of 100, there should be 100 in the account
 // i can print a statement and it shows the date of the transactions, money moving and balances
 // i can withdraw 50 and it should show a balance of 50
-//
-//
-//
+
+const Account = require("../lib/account");
+
 describe("Account", () => {
 	// beforeEach((done) => {
 	// });
