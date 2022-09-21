@@ -15,15 +15,25 @@ describe("Transaction", () => {
 		expect(dep1.date).toEqual(today);
 	});
 
-	it("a single null argument causes no error in construction", () => {
-		var dep1 = new Transaction(100, null);
-		dep1.date = "9/21/2022";
-		expect(dep1.withdrawal).toEqual(null);
-	});
 
-	it("two empty arguments throws error", () => {
+	it("a null or undefined argument throws", () => {
+		expect(() => {
+			new Transaction(100, undefined);
+		}).toThrow("ensure deposit and withdrawal inputs are numbers (maybe 0)");
+		expect(() => {
+			new Transaction(100, null);
+		}).toThrow("ensure deposit and withdrawal inputs are numbers (maybe 0)");
+		expect(() => {
+			new Transaction(undefined, 100);
+		}).toThrow("ensure deposit and withdrawal inputs are numbers (maybe 0)");
+		expect(() => {
+			new Transaction(null, 100);
+		}).toThrow("ensure deposit and withdrawal inputs are numbers (maybe 0)");
+		expect(() => {
+			new Transaction(null, null);
+		}).toThrow("ensure deposit and withdrawal inputs are numbers (maybe 0)");
 		expect(() => {
 			new Transaction(undefined, undefined);
-		}).toThrow("deposit and withdrawal cannot both be empty...");
+		}).toThrow("ensure deposit and withdrawal inputs are numbers (maybe 0)");
 	});
 });
