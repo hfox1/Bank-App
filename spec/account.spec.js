@@ -19,14 +19,20 @@ describe("Account", () => {
 	});
 
 	describe("working with transactions", () => {
-		it("a transaction can be added to an account", () => {
+		it("mocked transaction can be added to an account", () => {
 			var acc = new Account();
 			var dep1 = { deposit: 1, withdrawal: 2, date: "9/21/2022" };
 			acc.add(dep1);
-			console.log(acc.ledger);
 			expect(acc.ledger).toEqual([
 				{ deposit: 1, withdrawal: 2, date: "9/21/2022" },
 			]);
+		});
+
+		it("mocked transaction affects account balance", () => {
+			var acc = new Account();
+			var dep1 = { deposit: 100, withdrawal: 0, date: "9/21/2022" };
+			acc.add(dep1);
+			expect(acc.balance).toBe(100);
 		});
 	});
 });
