@@ -7,6 +7,5 @@ describe("Transaction", () => {
 		dep1.date = "9/21/2022";
 		expect(dep1.deposit).toEqual(100);
 		expect(dep1.date).toEqual("9/21/2022");
-		done();
 	});
 });
