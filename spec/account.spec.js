@@ -35,7 +35,7 @@ describe("Account", () => {
 			expect(acc.balance).toBe(100);
 		});
 
-		it("mocked transaction affects account balance", () => {
+		it("2 transactions affect account balance", () => {
 			var acc = new Account();
 			var dep1 = { deposit: 100, withdrawal: 0, date: "9/21/2022" };
 			acc.add(dep1);
