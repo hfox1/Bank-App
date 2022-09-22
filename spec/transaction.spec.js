@@ -16,7 +16,7 @@ describe('Transaction', () => {
 	});
 
 
-	it('a null or undefined argument throws', () => {
+	it('null or undefined arguments throw', () => {
 		expect(() => {
 			new Transaction(100, undefined);
 		}).toThrow('ensure deposit and withdrawal inputs are numbers >= 0');
