@@ -3,8 +3,8 @@
 
 ## Installs and dependencies
 
-npm
-jest
+ - npm
+ - jest
 
 
 ## Approach
